@@ -32,8 +32,8 @@ function tool_add_yaogan (id){ if( null == document.getElementById('id_box_yaoga
     //工具_引导
     function tool_yindao(data){  tool_in_last( "yindao",data ); tool_clear_time('id_tool_yindao', 2000); }
     
-    //监听 双击   【版本】长截图[版本061101]订阅更新
-    function box_tool_changxian_ondblclick(){ tool_yindao( "[版本061102]" ); }
+    //监听 双击   【版本】双击显隐[版本061102]git更新  长截图[版本061101]订阅更新
+    function box_tool_changxian_ondblclick(){ tool_yindao( "[版本061103]" ); }
 
     //监听 单击 参考tool_changxian
     function box_tool_changxian_onclick (){
