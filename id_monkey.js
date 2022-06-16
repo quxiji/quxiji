@@ -58,7 +58,7 @@
 
     //工具 双击 批改
     function tool_pigai_ondblclick(){
-        onGlobalMouseDown(event);
+        tool_mouse_simulateClick();
         tool_yindao("开发中");
         //1模拟鼠标位置
         //2触发元素
@@ -67,13 +67,7 @@
 
     //工具 模拟鼠标点击 参考http://t.zoukankan.com/CyLee-p-7513342.html https://www.w3school.com.cn/xmldom/met_element_dispatchevent.asp
     function tool_mouse_adblclick (){ var click_Timer = window.setTimeout(function(){ 
-        var ev = document.createEvent('HTMLEvents'); 
-        ev.clientX = 839;
-        ev.clientY = 491;
-        ev.initEvent('click', false, true); 
-        //ev.initMouseEvent( "click", true, true, document.defaultView, 0, 0, 0, 0, 0 false, false, false, false, 0, null ); 
-        document.getElementById("body").dispatchEvent(ev);
-        click_Timer = null; 
+        
     }, 100); }
     //工具 模拟鼠标点击屏幕中心 参考https://www.dandelioncloud.cn/article/details/1513505635269427201
 function tool_mouse_simulateClick(){
@@ -85,8 +79,8 @@ function tool_mouse_simulateClick(){
     var eventUp = document.createEvent("MouseEvents");
     eventUp.initMouseEvent("mouseup",true,true,window,0,
         sx,sy,cx,cy,false,false,false,false,0,null);
-    $("#container")[0].dispatchEvent(eventDown);
-    $("#container")[0].dispatchEvent(eventUp);
+    document.getElementById ('body')..dispatchEvent(eventDown);
+    document.getElementById ('body')..dispatchEvent(eventUp);
 }
 
 
