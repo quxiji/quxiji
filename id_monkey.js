@@ -17,7 +17,7 @@
     function tool_add_yaogan (id){ if( null == document.getElementById('id_box_yaogan')){ data_add(id,`<div id="id_box_yaogan" class="class_box_yaogan"></div>`); } }
 
     //展现
-    tool_yindao(`让每个人都触手开放[github版本061102]`);
+    tool_yindao(`让每个人都触手开放[github版本061103]`);
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -58,6 +58,7 @@
 
     //工具 双击 批改
     function tool_pigai_ondblclick(){
+        onGlobalMouseDown(event);
         tool_yindao("开发中");
         //1模拟鼠标位置
         //2触发元素
