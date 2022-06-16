@@ -79,8 +79,8 @@ function tool_mouse_simulateClick(){
     var eventUp = document.createEvent("MouseEvents");
     eventUp.initMouseEvent("mouseup",true,true,window,0,
         sx,sy,cx,cy,false,false,false,false,0,null);
-    document.getElementById ('body')..dispatchEvent(eventDown);
-    document.getElementById ('body')..dispatchEvent(eventUp);
+    document.getElementById ('body').dispatchEvent(eventDown);
+    document.getElementById ('body').dispatchEvent(eventUp);
 }
 
 
