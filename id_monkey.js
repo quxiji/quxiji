@@ -58,7 +58,7 @@
 
     //工具 双击 批改
     function tool_pigai_ondblclick(){
-        tool_mouse_simulateClick();
+        
         tool_yindao("开发中");
         //1模拟鼠标位置
         //2触发元素
@@ -69,6 +69,7 @@
     function tool_mouse_adblclick (){ var click_Timer = window.setTimeout(function(){ 
         
     }, 100); }
+
     //工具 模拟鼠标点击屏幕中心 参考https://www.dandelioncloud.cn/article/details/1513505635269427201
 function tool_mouse_simulateClick(){
     //点击位置为屏幕中间
@@ -103,7 +104,7 @@ function rukou_onclick(who){
 //入口 触双击🍓🍓
 function rukou_ondblclick(who){
   //用于调试 "位置",event.target.id  "子节点",event.target.children  "父节点",event.target.parent
-console.log( "rukou_ondblonclick:",who.id , "节点",event.target,"坐标",event.clientX ,",", event.clientY);
+console.log( "rukou_ondblonclick:",who.id , "节点",event.target.id,"坐标",event.clientX ,",", event.clientY);
   who = who.id;
   
   //Switch语句 参考https://www.w3school.com.cn/js/js_switch.asp
