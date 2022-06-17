@@ -1,6 +1,4 @@
-/_editor
-/#apk/id/id_monkey.js
-/:::
+
 
     //id_monkey.face 孵化 draw.face 全局入口 让每个人都触手开放
     //控制台 时间06月11日23时 参考https://www.w3cschool.cn/javascript_guide/javascript_guide-9hey2691.html
