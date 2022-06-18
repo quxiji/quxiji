@@ -19,7 +19,7 @@
     function tool_int_yaogan (){ document.getElementById('id_box_tool').style = "left:10px;bottom:10px;"; }
 
     //展现
-    document.title = `.` + document.title ;
+    document.title = `·` + document.title ;
     tool_yindao(`让每个人都触手开放[版本github061803]`);
 
     //添加 body 监听 单击
