@@ -98,9 +98,8 @@ function tool_mouse_simulateClick(){
 //入口 触单击🍓 问题会冒泡其他元素 无法使用
 function rukou_onclick(who){
   
-  //用于调试
-console.log( "rukou_onclick:", document.elementsFromPoint(who.clientX,who.clientY));
-//tool_in_last( "xy_touch"+tool_getUuiD(1),who.clientX +","+who.clientY);
+  //用于调试console.log( "rukou_onclick:", document.elementsFromPoint(who.clientX,who.clientY));
+  //tool_in_last( "xy_touch"+tool_getUuiD(1),who.clientX +","+who.clientY);
   
   
   who = document.elementFromPoint(who.clientX,who.clientY);
