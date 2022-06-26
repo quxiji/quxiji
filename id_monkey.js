@@ -20,7 +20,7 @@
 
     //展现
     document.title = `·` + document.title ;
-    tool_yindao(`让每个人都触手开放[版本github062603]`);
+    tool_yindao(`让每个人都触手开放[版本github062604]`);
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -186,7 +186,7 @@ function longPress(who)   {                                               tool_t
  
 //交互 双击 单击 参考#https://my.oschina.net/jsan/blog/123181 问题 监听多对象被触发 修改时间06月13日19时 阻止冒泡 参考https://blog.csdn.net/lyt_angularjs/article/details/86592089
 var clickTimer = null;
-function _onclick(who)    { who = event;  if(clickTimer) { window.clearTimeout(clickTimer); clickTimer = null; } clickTimer = window.setTimeout(function(){  tool_tishi("touch_c","触单击"); rukou_onclick(who);  }, 100); }
+function _onclick(who)    { who = event;  if(clickTimer) { window.clearTimeout(clickTimer); clickTimer = null; } clickTimer = window.setTimeout(function(){  tool_tishi("touch_c","触单击"); rukou_onclick(who);  }, 50); }
 function _ondblclick(who) { who = event;  if(clickTimer) { window.clearTimeout(clickTimer); clickTimer = null; } tool_tishi("touch_cc","触双击"); rukou_ondblclick(who);  }
 
 //工具 临时提示 用于调试 时间06月12日14时
