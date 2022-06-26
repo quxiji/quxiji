@@ -20,7 +20,7 @@
 
     //展现
     document.title = `·` + document.title ;
-    tool_yindao(`让每个人都触手开放[版本github062605]`);
+    tool_yindao(`城门_核桃  [版本github_062605]`);
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
