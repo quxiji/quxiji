@@ -1,8 +1,7 @@
 
     //id_monkey.face 孵化 draw.face 全局入口 让每个人都触手开放
-    //控制台 时间06月11日23时 参考https://www.w3cschool.cn/javascript_guide/javascript_guide-9hey2691.html
-
-    //学习油猴 http://t.zoukankan.com/ningci-p-14548175.html
+    
+    //测试版本 http://47.97.64.181/quxiji/apk/id/id_monkey.js
 
 
     //添加大盒子 参考http://www.wjhsh.net/poterliu-p-14416630.html
