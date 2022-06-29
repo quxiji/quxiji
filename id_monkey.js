@@ -19,7 +19,7 @@
 
     //展现
     document.title = `·` + document.title ;
-    tool_yindao(`城门_核桃  [版本github_062606]`);
+    tool_yindao(`城门_核桃  [版本github_062901]`);
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -127,7 +127,15 @@ function tool_mouse_simulateClick(){
 
 }
  
-
+//工具 聊天框消失
+function tool_xiaoshi_liaotian (){
+    //学生聊天框消失
+    if( document.getElementById("chatAudio") ){
+        var list=document.getElementById("chatAudio").parentNode;
+        console.log(list.childNodes[1]);
+        if( document.getElementById("chatAudio") != list.childNodes[1] )list.removeChild(list.childNodes[1]);
+    }
+}
 
 
 var doms_click = [];
@@ -171,21 +179,15 @@ function rukou_ondblclick(who){
 
 
 
-
+//工具 广告屏蔽 06月29日17时
+function tool_class_displaynone (css) {  if( document.querySelectorAll(css)[0]) document.querySelectorAll(css)[0].style = "display:none;";  }
+function tool_id_displaynone (id) {  if(  document.getElementById (id))  document.getElementById (id).style = "display:none;";  }
+tool_class_displaynone (".s-bottom-ctner"); 
+tool_id_displaynone ("u_sp");
 
 
 //工具 长截图 调整布局 强大的js原生选择器 document.querySelector() 参考https://www.jianshu.com/p/2e1d5c92f9c4 https://www.runoob.com/jsref/met-element-queryselector.html
 function tool_changjietu (){ if( document.querySelectorAll(".ant-table-body")[0])document.querySelectorAll(".ant-table-body")[0].style = "height:8000px; overflow:visible;";if( document.querySelectorAll(".ant-table-body")[1])document.querySelectorAll(".ant-table-body")[1].style = "height:8000px; overflow:visible;";if( document.querySelector(".ant-layout-content"))document.querySelector(".ant-layout-content").style = "margin: 24px 16px; background: rgb(255, 255, 255); padding: 24px; height: 8000px; overflow: hidden;";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0].style = "height:8000px; ";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1].style = "height:8000px; ";}
-
-//工具 聊天框消失
-function tool_xiaoshi_liaotian (){
-    //学生聊天框消失
-    if( document.getElementById("chatAudio") ){
-        var list=document.getElementById("chatAudio").parentNode;
-        console.log(list.childNodes[1]);
-        if( document.getElementById("chatAudio") != list.childNodes[1] )list.removeChild(list.childNodes[1]);
-    }
-}
 
 //工具 触摸 where
 function tool_touch_location (id){ var obj_yaogan = document.getElementById (id); obj_yaogan.style.left = event.clientX + 'px'; obj_yaogan.style.top = event.clientY + 'px'; obj_yaogan.style.posotion = "absolute"; obj_yaogan.style.position = "fixed";}
