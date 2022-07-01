@@ -8,6 +8,7 @@
     var box_tool =document.createElement("div");
     box_tool.id = "id_box_body";
     box_tool.style = "position:fixed;left:10px;bottom:10px;height:;width:;z-index:9999;background:rgba(50,50,50,0);display:block;";
+    box_tool.innerHTML = `<style>::-webkit-scrollbar{ display: none; /* Chrome Safari */} </style>`;
     document.body.appendChild( box_tool );
 
     //工具 添加 工具箱 摇杆
