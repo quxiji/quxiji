@@ -156,7 +156,8 @@ function rukou_onclick(who){
      case 'body':              break;
      case 'id_tool_changxian': tool_clear(); tool_changxian_ondblclick(); break;
      case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
-     case 'id_tool_link':     tool_clear(); tool_link(who); break;
+     case 'id_tool_link':      tool_clear(); tool_link(who); break;
+          case 'id_tool_link_wankebiao':      tool_clear(); window.open("https://shimo.im/sheets/e1Az4OXdd8CRDeqW/5C8AI"); break;
      case 'id_tool_clear':     tool_clear(); tool_int_yaogan (); console.clear();  break;
      default:  doms_click.push(who);  console.log(doms_click);        
   } 
@@ -183,7 +184,7 @@ function rukou_ondblclick(who){
 }
 
 //工具 link
-function tool_link(who){ tool_in(`link_shimo`,`<a src='https://shimo.im/sheets/e1Az4OXdd8CRDeqW/5C8AI'><a/>`);}
+function tool_link(who){ tool_in(`link_wankebiao`,`完课表`);}
 
 //工具 广告屏蔽 06月29日17时
 function tool_class_displaynone (css) {  if( document.querySelectorAll(css)[0]) document.querySelectorAll(css)[0].style = "display:none;";  }
