@@ -20,7 +20,7 @@
 
     //展现
     document.title = `·` + document.title ;
-    tool_yindao(`城门_核桃  [版本github_062901]`);
+    tool_yindao(`城门_核桃  [版本github_070201]`);
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -33,6 +33,9 @@
 
     //添加 工具 批改
     function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); var box_tool_changxian = document.getElementById('id_tool_pigai'); box_tool_changxian.style = clas_tool; }
+
+    //添加 工具 链接
+    function tool_in_add_pigai(){ tool_in ("link" ,"链接"); var box_tool_changxian = document.getElementById('id_tool_link'); box_tool_changxian.style = clas_tool; }
 
     //工具_引导 用于引导用户
     function tool_yindao(data){  tool_in_last( "yindao",data ); tool_clear_time('id_tool_yindao', 1500); }
