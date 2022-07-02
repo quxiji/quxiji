@@ -35,7 +35,7 @@
     function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); var box_tool_changxian = document.getElementById('id_tool_pigai'); box_tool_changxian.style = clas_tool; }
 
     //工具_引导 用于引导用户
-    function tool_yindao(data){  tool_in_last( "yindao",data ); tool_clear_time('id_tool_yindao', 2000); }
+    function tool_yindao(data){  tool_in_last( "yindao",data ); tool_clear_time('id_tool_yindao', 1500); }
     
     //工具 双击 长截图
     function tool_changxian_ondblclick(){
