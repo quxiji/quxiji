@@ -177,7 +177,7 @@ function rukou_ondblclick(who){
       case 'id_tool_changxian': break;
       case 'id_tool_pigai':     break;
       case 'id_tool_clear':     break;
-      default:                  tool_in("clear","清空"); tool_in_add_pigai();  tool_in_add_changjietu(); 
+      default:                  tool_in("clear","清空"); tool_in_add_pigai(); tool_in_add_link(); tool_in_add_changjietu(); 
     } 
   }
 }
