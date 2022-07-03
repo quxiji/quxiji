@@ -3,7 +3,6 @@
     
     //测试版本 http://47.97.64.181/quxiji/apk/id/id_monkey.js
 
-
     //添加大盒子 参考http://www.wjhsh.net/poterliu-p-14416630.html
     var box_tool =document.createElement("div");
     box_tool.id = "id_box_body";
@@ -20,7 +19,7 @@
 
     //展现
     document.title = `·` + document.title ;
-    tool_yindao(`城门 [github_070401]`);
+    tool_yindao(`城门 [github_070402]`);
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -177,7 +176,7 @@ function rukou_ondblclick(who){
       case 'id_tool_changxian': break;
       case 'id_tool_pigai':     break;
       case 'id_tool_clear':     break;
-      default:                  tool_in_add_pigai(); tool_in_add_link(); tool_in_add_jietu(); 
+      default:                  if( tool_get_url() == "crm.pipacoding.com"){ tool_in_add_pigai(); tool_in_add_link(); } if( tool_get_url() == "api.pipacoding.com")tool_in_add_jietu(); 
     } 
   }
 }
@@ -191,6 +190,8 @@ function tool_id_displaynone (id) {  if(  document.getElementById (id))  documen
 tool_class_displaynone (".s-bottom-ctner"); 
 tool_id_displaynone ("u_sp");
 
+//工具 获取 地址
+function tool_get_url(){ return window.location.hostname; }
 
 //工具 长截图 调整布局 强大的js原生选择器 document.querySelector() 参考https://www.jianshu.com/p/2e1d5c92f9c4 https://www.runoob.com/jsref/met-element-queryselector.html
 function tool_jietu (){ if( document.querySelectorAll(".ant-table-body")[0])document.querySelectorAll(".ant-table-body")[0].style = "height:8000px; overflow:visible;";if( document.querySelectorAll(".ant-table-body")[1])document.querySelectorAll(".ant-table-body")[1].style = "height:8000px; overflow:visible;";if( document.querySelector(".ant-layout-content"))document.querySelector(".ant-layout-content").style = "margin: 24px 16px; background: rgb(255, 255, 255); padding: 24px; height: 8000px; overflow: hidden;";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0].style = "height:8000px; ";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1].style = "height:8000px; ";}
@@ -236,5 +237,4 @@ function data_delete (id){ var child=document.getElementById(id); if(child){ chi
 function data_add (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(5); newtext.innerHTML= data; var list=document.getElementById(id); list.insertBefore(newtext,list.childNodes[0]); return "data_add(ok)"; }
 function data_add_last (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(6); newtext.innerHTML= data; var list=document.getElementById(id); list.appendChild(newtext); return "data_add(ok)"; }
 
-
-                                                                                                                                                                     
+                                                                                                                        
