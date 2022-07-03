@@ -20,7 +20,7 @@
 
     //展现
     document.title = `·` + document.title ;
-    tool_yindao(`城门 [github_070201]`);
+    tool_yindao(`城门 [github_070401]`);
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -29,13 +29,13 @@
     document.body.addEventListener("dblclick", function(){ var bod = new Object(); bod.id = "body"; _ondblclick( bod ); } );
 
     //添加 工具 长截图
-    function tool_in_add_changjietu(){ tool_in ("changxian" ,"长截图"); var box_tool_changxian = document.getElementById('id_tool_changxian'); box_tool_changxian.style = clas_tool; }
+    function tool_in_add_jietu(){ tool_in ("changxian" ,"截图"); document.getElementById('id_tool_changxian').style = clas_tool; }
 
     //添加 工具 批改
-    function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); var box_tool_changxian = document.getElementById('id_tool_pigai'); box_tool_changxian.style = clas_tool; }
+    function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); document.getElementById('id_tool_pigai').style = clas_tool; }
 
     //添加 工具 链接
-    function tool_in_add_link(){ tool_in ("link" ,"链接"); var box_tool_changxian = document.getElementById('id_tool_link'); box_tool_changxian.style = clas_tool; }
+    function tool_in_add_link(){ tool_in ("link" ,"链接"); document.getElementById('id_tool_link').style = clas_tool; }
 
     //工具_引导 用于引导用户
     function tool_yindao(data){  tool_in_last( "yindao",data ); tool_clear_time('id_tool_yindao', 1500); }
@@ -43,7 +43,7 @@
     //工具 双击 长截图
     function tool_changxian_ondblclick(){
         //长截图
-        tool_changjietu ();
+        tool_jietu ();
 
         //监听 单击 提示截图快捷键
         tool_yindao( "按下截图按键：Ctrl  +  shift  +  S" );
@@ -177,7 +177,7 @@ function rukou_ondblclick(who){
       case 'id_tool_changxian': break;
       case 'id_tool_pigai':     break;
       case 'id_tool_clear':     break;
-      default:                  tool_in_add_pigai(); tool_in_add_link(); tool_in_add_changjietu(); 
+      default:                  tool_in_add_pigai(); tool_in_add_link(); tool_in_add_jietu(); 
     } 
   }
 }
@@ -193,7 +193,7 @@ tool_id_displaynone ("u_sp");
 
 
 //工具 长截图 调整布局 强大的js原生选择器 document.querySelector() 参考https://www.jianshu.com/p/2e1d5c92f9c4 https://www.runoob.com/jsref/met-element-queryselector.html
-function tool_changjietu (){ if( document.querySelectorAll(".ant-table-body")[0])document.querySelectorAll(".ant-table-body")[0].style = "height:8000px; overflow:visible;";if( document.querySelectorAll(".ant-table-body")[1])document.querySelectorAll(".ant-table-body")[1].style = "height:8000px; overflow:visible;";if( document.querySelector(".ant-layout-content"))document.querySelector(".ant-layout-content").style = "margin: 24px 16px; background: rgb(255, 255, 255); padding: 24px; height: 8000px; overflow: hidden;";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0].style = "height:8000px; ";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1].style = "height:8000px; ";}
+function tool_jietu (){ if( document.querySelectorAll(".ant-table-body")[0])document.querySelectorAll(".ant-table-body")[0].style = "height:8000px; overflow:visible;";if( document.querySelectorAll(".ant-table-body")[1])document.querySelectorAll(".ant-table-body")[1].style = "height:8000px; overflow:visible;";if( document.querySelector(".ant-layout-content"))document.querySelector(".ant-layout-content").style = "margin: 24px 16px; background: rgb(255, 255, 255); padding: 24px; height: 8000px; overflow: hidden;";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0].style = "height:8000px; ";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1].style = "height:8000px; ";}
 
 //工具 触摸 where
 function tool_touch_location (id){ var obj_yaogan = document.getElementById (id); obj_yaogan.style.left = event.clientX + 'px'; obj_yaogan.style.top = event.clientY + 'px'; obj_yaogan.style.posotion = "absolute"; obj_yaogan.style.position = "fixed";}
