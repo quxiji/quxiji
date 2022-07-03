@@ -97,7 +97,7 @@
         
 var click_Timer = window.setTimeout(function(){ 
 console.log( who);
-tool_yindao("开发中");
+tool_yindao("开发中 [问题:js无法模拟鼠标点击页面元素]");
 }, 2000);
 
     }
