@@ -44,7 +44,7 @@
         tool_jietu ();
 
         //监听 单击 提示截图快捷键
-        tool_yindao( "按下截图按键：Ctrl  +  shift  +  S" );
+        tool_yindao( "Edge浏览器里 按下截图按键：Ctrl  +  shift  +  S" );
 
         //聊天框消失tool_xiaoshi_liaotian ();
 
