@@ -175,7 +175,7 @@ function rukou_ondblclick(who){
       case 'id_tool_changxian': break;
       case 'id_tool_pigai':     break;
       case 'id_tool_clear':     break;
-      default:                  if( tool_get_url() == "crm.pipacoding.com"){ tool_in_add_pigai(); tool_in_add_link(); } if( tool_get_url() == "api.pipacoding.com")tool_in_add_jietu(); 
+      default:                  if( tool_get_url() == "crm.pipacoding.com"){ tool_in_add_pigai(); tool_in_add_link(); } if( tool_get_url() == "api.hetao101.com")tool_in_add_jietu(); 
     } 
   }
 }
