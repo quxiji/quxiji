@@ -1,4 +1,5 @@
 
+
     //id_monkey.face 孵化 draw.face 全局入口 让每个人都触手开放
     
     //测试版本 http://47.97.64.181/quxiji/apk/id/id_monkey.js
@@ -6,19 +7,19 @@
     //添加大盒子 参考http://www.wjhsh.net/poterliu-p-14416630.html
     var box_tool =document.createElement("div");
     box_tool.id = "id_box_body";
-    box_tool.style = "position:fixed;left:10px;bottom:10px;height:;width:;z-index:9999;background:rgba(50,50,50,0);display:block;";
-    box_tool.innerHTML = `<style>::-webkit-scrollbar{ display: none; /* Chrome Safari */} </style>`;
+    box_tool.style = "position:fixed;left:10px;bottom:10px;height:;max-height:calc(80vh);z-index:9999;background:rgba(50,50,50,0);overflow:auto;display:block;";
+    box_tool.innerHTML = `<style>::-webkit-scrollbar{ display: none; /* Chrome Safari */} </style><style class="darkreader darkreader--sync" media="screen"></style>`;
     document.body.appendChild( box_tool );
 
     //工具 添加 工具箱 摇杆
     tool_add_yaogan ("id_box_body");
     tool_int_yaogan ();
-    var clas_tool = "height:;width:;border-radius:5px 5px 5px 5px;border:2px solid rgba(250,250,250,0);margin:3px;box-shadow: 1px 2px 3px rgba(200,200,200,1);background:rgba(255,255,255,1);color:rgba(0,0,0,1);display:block;";
+    var clas_tool = "max-height:calc(60vh);width:;border-radius:5px 5px 5px 5px;border:2px solid rgba(250,250,250,0);margin:3px;box-shadow: 1px 2px 3px rgba(200,200,200,1);background:rgba(255,255,255,1);color:rgba(0,0,0,1);overflow:auto;display:block;";
     function tool_add_yaogan (id){ if( null == document.getElementById('id_box_tool')){ data_add(id,`<div id="id_box_tool"></div>`); } }
     function tool_int_yaogan (){ document.getElementById('id_box_tool').style = "left:10px;bottom:10px;"; }
 
     //展现版本
-    if( tool_get_url() == "crm.pipacoding.com" | "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`城门 [github_070402]`);  }
+    if( tool_get_url() == "crm.pipacoding.com" | "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`城门 [github_071201]`);  }
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -35,8 +36,11 @@
     //添加 工具 链接
     function tool_in_add_link(){ tool_in ("link" ,"链接"); document.getElementById('id_tool_link').style = clas_tool; }
 
+    //添加 工具 到课
+    function tool_in_add_daoke(){ tool_in ("daoke" ,"到课"); document.getElementById('id_tool_daoke').style = clas_tool;}
+
     //工具_引导 用于引导用户
-    function tool_yindao(data){  tool_in_last( "yindao",data ); tool_clear_time('id_tool_yindao', 1500); }
+    function tool_yindao(data){ var date=tool_getUuiD(2); tool_in( "yindao_"+date,data ); tool_clear_time('id_tool_yindao_'+date, 1500); }
     
     //工具 双击 长截图
     function tool_changxian_ondblclick(){
@@ -156,6 +160,7 @@ function rukou_onclick(who){
      case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
      case 'id_tool_link':      tool_clear(); tool_link(who); break;
           case 'id_tool_link_wankebiao':      tool_clear(); window.open("https://shimo.im/sheets/e1Az4OXdd8CRDeqW/5C8AI"); break;
+     case 'id_tool_daoke':     tool_daoke(); break;
      default:  doms_click.push(who);  console.log(doms_click);        
   } 
 }
@@ -175,10 +180,17 @@ function rukou_ondblclick(who){
       case 'id_tool_changxian': break;
       case 'id_tool_pigai':     break;
       case 'id_tool_clear':     break;
-      default:                  if( tool_get_url() == "crm.pipacoding.com"){ tool_in_add_pigai(); tool_in_add_link(); } if( tool_get_url() == "api.hetao101.com")tool_in_add_jietu(); 
+      default:                  if( tool_get_url() == "crm.pipacoding.com"){ tool_in_add_pigai(); tool_in_add_link(); } if( tool_get_url() == "api.hetao101.com"){ tool_in_add_jietu(); tool_in_add_daoke();}console.log( "url",tool_get_url());
+
     } 
   }
 }
+
+//工具 到课 时间07月11日10时 修改07月12日10时 在线课堂链接https://api.hetao101.com/live-course-system/course-management/online-course
+function tool_daoke(){  var x = document.getElementsByClassName("ant-tabs-tabpane ant-tabs-tabpane-active")[0].getElementsByClassName("OnlineStyle_useCopyLabel__jCKO-"); var y =[]; for (var i = 0; i < x.length; i++) { y[i]  = x[i].innerText; x[i].style =clas_tool; } tool_clear();  tool_copyToClip(y); }
+
+// 工具 复制内容到剪切板 2个数据一行 带行号 时间07月11日10时 修改07月12日10时 参考https://blog.csdn.net/sunnyzyq/article/details/85065022 参考制表符https://blog.csdn.net/fanxueya1322/article/details/86612340 参考奇偶https://blog.csdn.net/qq_40816360/article/details/88295099
+function tool_copyToClip(contentArray, message) { var contents = ""; for (var i = 0; i < contentArray.length; i++) { if (i%2 === 0){  contents +=  1+ i/2 + "\t" +contentArray[i] + "\t";} else{ contents +=  contentArray[i] +"\n";} } var id = "data_copy"+tool_getUuiD(2); tool_in(id ,contents); document.getElementById('id_tool_'+id).style.textAlign= 'left'; const textarea = document.createElement('textarea'); textarea.value = contents; document.body.appendChild(textarea); textarea.select(); if (document.execCommand('copy')) { document.execCommand('copy'); } document.body.removeChild(textarea); if (message == null) { tool_yindao("复制成功 可直接粘贴 "+contentArray.length/2); } else{ tool_yindao(message); } }
 
 //工具 link
 function tool_link(who){ tool_in(`link_wankebiao`,`完课表`);}
@@ -236,4 +248,4 @@ function data_delete (id){ var child=document.getElementById(id); if(child){ chi
 function data_add (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(5); newtext.innerHTML= data; var list=document.getElementById(id); list.insertBefore(newtext,list.childNodes[0]); return "data_add(ok)"; }
 function data_add_last (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(6); newtext.innerHTML= data; var list=document.getElementById(id); list.appendChild(newtext); return "data_add(ok)"; }
 
-                                                                                                                        
+                                                                                                                                                                                                                                                        
