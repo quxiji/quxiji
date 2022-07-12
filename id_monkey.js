@@ -19,7 +19,7 @@
     function tool_int_yaogan (){ document.getElementById('id_box_tool').style = "left:10px;bottom:10px;"; }
 
     //展现版本
-    if( tool_get_url() == "crm.pipacoding.com" || "api.hetao101.com" || "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`城门 [github_071201]`);  }
+    if( tool_get_url() === "crm.pipacoding.com" || "api.hetao101.com" || "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`城门 [github_071201]`);  }
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -180,7 +180,7 @@ function rukou_ondblclick(who){
       case 'id_tool_changxian': break;
       case 'id_tool_pigai':     break;
       case 'id_tool_clear':     break;
-      default:                  if( tool_get_url() == "crm.pipacoding.com" || "crm.hetao101.com"){ tool_in_add_pigai(); tool_in_add_link(); } if( tool_get_url() == "api.hetao101.com" || "api.pipacoding.com"){ tool_in_add_jietu(); tool_in_add_daoke();}console.log( "url",tool_get_url());
+      default:                  if( tool_get_url() === "crm.pipacoding.com" || "crm.hetao101.com"){ tool_in_add_pigai(); tool_in_add_link(); } if( tool_get_url() === "api.hetao101.com" || "api.pipacoding.com"){ tool_in_add_jietu(); tool_in_add_daoke();}console.log( "url",tool_get_url());
 
     } 
   }
