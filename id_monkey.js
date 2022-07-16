@@ -257,10 +257,10 @@ function tool_data_out_hang( data , lie1 , lie2){
 }
 
 //工具 到课 时间07月11日10时 修改07月12日10时 在线课堂链接https://api.hetao101.com/live-course-system/course-management/online-course
-function tool_daoke(){  var x = document.getElementsByClassName("ant-tabs-tabpane ant-tabs-tabpane-active")[0].getElementsByClassName("OnlineStyle_useCopyLabel__jCKO-"); var y =[]; for (var i = 0; i < x.length; i++) { y[i]  = x[i].innerText; x[i].style =clas_tool; } tool_clear();  tool_copyToClip(y); }
+function tool_daoke(){  var x = document.getElementsByClassName("ant-tabs-tabpane ant-tabs-tabpane-active")[0].getElementsByClassName("OnlineStyle_useCopyLabel__jCKO-"); var y =[]; for (var i = 0; i < x.length; i++) { y[i]  = x[i].innerText; x[i].style =clas_tool; } tool_clear(); var data_copy = tool_copyToClip(y); var id = "data_copy"+tool_getUuiD(2); tool_in(id ,data_copy);  }
 
 // 工具 复制内容到剪切板 2个数据一行 带行号 时间07月11日10时 修改07月12日10时 参考https://blog.csdn.net/sunnyzyq/article/details/85065022 参考制表符https://blog.csdn.net/fanxueya1322/article/details/86612340 参考奇偶https://blog.csdn.net/qq_40816360/article/details/88295099
-function tool_copyToClip(contentArray, message) { var contents = ""; for (var i = 0; i < contentArray.length; i++) { if (i%2 === 0){  contents +=  1+ i/2 + "\t" +contentArray[i] + "\t";} else{ contents +=  contentArray[i] +"\n";} } var id = "data_copy"+tool_getUuiD(2); tool_in(id ,contents); document.getElementById('id_tool_'+id).style.textAlign= 'left'; const textarea = document.createElement('textarea'); textarea.value = contents; document.body.appendChild(textarea); textarea.select(); if (document.execCommand('copy')) { document.execCommand('copy'); } document.body.removeChild(textarea); if (message == null) { tool_yindao("复制成功 可直接粘贴 "+contentArray.length/2); } else{ tool_yindao(message); } }
+function tool_copyToClip(contentArray, message) { var contents = ""; for (var i = 0; i < contentArray.length; i++) { if (i%2 === 0){  contents +=  1+ i/2 + "\t" +contentArray[i] + "\t";} else{ contents +=  contentArray[i] +"\n";} } document.getElementById('id_tool_'+id).style.textAlign= 'left'; const textarea = document.createElement('textarea'); textarea.value = contents; document.body.appendChild(textarea); textarea.select(); if (document.execCommand('copy')) { document.execCommand('copy'); } document.body.removeChild(textarea); if (message == null) { tool_yindao("复制成功 可直接粘贴 "+contentArray.length/2); } else{ tool_yindao(message); } return contents;}
 
 //工具 link
 function tool_link(who){ tool_in(`link_wankebiao`,`完课表`);}
