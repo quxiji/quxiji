@@ -1,5 +1,4 @@
 
-
     //id_monkey.face 孵化 draw.face 全局入口 让每个人都触手开放
     
     //测试版本 http://47.97.64.181/quxiji/apk/id/id_monkey.js
@@ -8,18 +7,18 @@
     var box_tool =document.createElement("div");
     box_tool.id = "id_box_body";
     box_tool.style = "position:fixed;left:10px;bottom:10px;height:;max-height:calc(80vh);z-index:9999;background:rgba(50,50,50,0);overflow:auto;display:block;";
-    box_tool.innerHTML = `<style>::-webkit-scrollbar{ display: none; /* Chrome Safari */} </style><style class="darkreader darkreader--sync" media="screen"></style>`;
+    box_tool.innerHTML = `<style>::-webkit-scrollbar{ display: none; /* Chrome Safari */} </style>`;
     document.body.appendChild( box_tool );
 
     //工具 添加 工具箱 摇杆
     tool_add_yaogan ("id_box_body");
     tool_int_yaogan ();
-    var clas_tool = "max-height:calc(60vh);width:;border-radius:5px 5px 5px 5px;border:2px solid rgba(250,250,250,0);margin:3px;box-shadow: 1px 2px 3px rgba(200,200,200,1);background:rgba(255,255,255,1);color:rgba(0,0,0,1);overflow:auto;display:block;";
+    var clas_tool = "max-height:calc(60vh);max-width:calc(60vh);border-radius:5px 5px 5px 5px;border:2px solid rgba(250,250,250,0);margin:3px;box-shadow: 1px 2px 3px rgba(200,200,200,1);background:rgba(255,255,255,1);color:rgba(0,0,0,1);font-family:'微软雅黑';font-size:10px;overflow:auto;display:block;";
     function tool_add_yaogan (id){ if( null == document.getElementById('id_box_tool')){ data_add(id,`<div id="id_box_tool"></div>`); } }
     function tool_int_yaogan (){ document.getElementById('id_box_tool').style = "left:10px;bottom:10px;"; }
 
-    //展现版本
-    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`城门 [github_071201]`);  }
+    //🚩🚩展现版本
+    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `.` + document.title ; tool_yindao(`[城门 [github_071419]`);  }
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -28,16 +27,22 @@
     document.body.addEventListener("dblclick", function(){ var bod = new Object(); bod.id = "body"; _ondblclick( bod ); } );
 
     //添加 工具 长截图
-    function tool_in_add_jietu(){ tool_in ("changxian" ,"截图"); document.getElementById('id_tool_changxian').style = clas_tool; }
+    function tool_in_add_jietu(){ tool_in ("changxian" ,"截图"); }// document.getElementById('id_tool_changxian').style = clas_tool; }
 
     //添加 工具 批改
-    function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); document.getElementById('id_tool_pigai').style = clas_tool; }
+    function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); }// document.getElementById('id_tool_pigai').style = clas_tool; }
 
     //添加 工具 链接
-    function tool_in_add_link(){ tool_in ("link" ,"链接"); document.getElementById('id_tool_link').style = clas_tool; }
+    function tool_in_add_link(){ tool_in ("link" ,"链接"); }// document.getElementById('id_tool_link').style = clas_tool; }
 
     //添加 工具 到课
-    function tool_in_add_daoke(){ tool_in ("daoke" ,"到课"); document.getElementById('id_tool_daoke').style = clas_tool;}
+    function tool_in_add_daoke(){ tool_in ("daoke" ,"到课"); }// document.getElementById('id_tool_daoke').style = clas_tool;}
+
+    //添加 工具 完课
+    function tool_in_add_wanke(){ tool_in ("wanke" ,"完课"); }
+
+    //添加 工具 分析完课
+    function tool_in_add_fenxiwanke(){ tool_in ("fenxiwanke" ,"分析完课"); }
 
     //工具_引导 用于引导用户
     function tool_yindao(data){ var date=tool_getUuiD(2); tool_in( "yindao_"+date,data ); tool_clear_time('id_tool_yindao_'+date, 1500); }
@@ -113,7 +118,7 @@ const onKeydownUp = (e, isDown) => { console.log(`key: ${e.key} ${isDown ? 'down
         document.addEventListener('keydown', (e) => onKeydownUp(e, true));
         document.addEventListener('keyup', (e) => onKeydownUp(e, false));
     };
-    testUpAndDown();
+//testUpAndDown();
 
     //工具 模拟鼠标点击 参考http://t.zoukankan.com/CyLee-p-7513342.html https://www.w3school.com.cn/xmldom/met_element_dispatchevent.asp
     function tool_mouse_adblclick (){ var click_Timer = window.setTimeout(function(){ 
@@ -157,10 +162,14 @@ function rukou_onclick(who){
   switch(who.id) {
      case 'body':              break;
      case 'id_tool_changxian': tool_clear(); tool_changxian_ondblclick(); break;
+     case 'id_tool_daoke':     tool_daoke(); break;
+
+     case 'id_tool_wanke':     tool_clear(); tool_in_text("wanke_data",""); tool_in_add_fenxiwanke(); break;
+     case 'id_tool_fenxiwanke':tool_fenxiwanke("id_tool_wanke_data"); break;
+
      case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
      case 'id_tool_link':      tool_clear(); tool_link(who); break;
           case 'id_tool_link_wankebiao':      tool_clear(); window.open("https://shimo.im/sheets/e1Az4OXdd8CRDeqW/5C8AI"); break;
-     case 'id_tool_daoke':     tool_daoke(); break;
      default:  doms_click.push(who);  console.log(doms_click);        
   } 
 }
@@ -180,10 +189,71 @@ function rukou_ondblclick(who){
       case 'id_tool_changxian': break;
       case 'id_tool_pigai':     break;
       case 'id_tool_clear':     break;
-      default:                  if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"){ tool_in_add_pigai(); tool_in_add_link(); } if( tool_get_url() == "api.hetao101.com" || tool_get_url() =="api.pipacoding.com"){ tool_in_add_jietu(); tool_in_add_daoke();}console.log( "url",tool_get_url());
+      default:                  if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"){ tool_in_add_pigai(); tool_in_add_link(); tool_in_add_wanke();} if( tool_get_url() == "api.hetao101.com" || tool_get_url() =="api.pipacoding.com"){ tool_in_add_jietu(); tool_in_add_daoke();}console.log( "url",tool_get_url());
 
     } 
   }
+}
+
+
+/*
+userId	学员姓名	在班状态	完课率	L11-1	L11-1	L11-1	L11-1	L11-2	L11-2	L11-2	L11-2	L11-3	L11-3	L11-3	L11-3	L11-4	L11-4	L11-4	L11-4	L11-5	L11-5	L11-5	L11-5	L11-6	L11-6	L11-6	L11-6
+userId	学员姓名	在班状态	完课率	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业
+6963563	张柏毅	在班	100.0%	已完课	12/12	100	5	已完课	13/13	100	4	已完课	12/12	100	5	已完课	14/14	100	5	已完课	16/16	100	5	已完课	13/13	100	待批改
+7663345	刘芷涵	在班	45.0%	到课未完课	2/12	未提交	未提交	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交
+8028031	代婉瑛	在班	100.0%	已完课	12/12	100	5	已完课	13/13	100	5	已完课	12/12	100	5	已完课	14/14	100	5	已完课	16/16	100	5	已完课	13/13	100	待批改
+7924477	祁南月	在班	90.0%	已完课	12/12	100	5	已完课	13/13	100	5	已完课	12/12	100	5	已完课	14/14	100	待批改	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交
+8252024	付熙妍	在班	100.0%	已完课	12/12	100	5	已完课	13/13	100	5	已完课	12/12	100	5	已完课	14/14	100	5	已完课	16/16	100	5	已完课	13/13	100	待批改
+7581946	傅正恩	在班	95.0%	已完课	12/12	60	5	已完课	13/13	40	5	已完课	12/12	80	5	已完课	14/14	60	5	已完课	16/16	80	待批改	未到课	0/0	未提交	未提交
+8267764	赵思涵	在班	100.0%	已完课	12/12	80	3	已完课	13/13	100	3	已完课	12/12	100	5	已完课	14/14	100	3	已完课	16/16	100	待批改	已完课	13/13	60	待批改
+8082037	张泓瑞	在班	100.0%	已完课	12/12	40	5	已完课	13/13	100	5	已完课	12/12	100	5	已完课	14/14	80	5	已完课	16/16	60	5	已完课	13/13	60	待批改
+8061556	伍启程	在班	65.0%	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交	未到课	0/0	未提交	未提交
+8240751	刘骏鹏	在班	95.0%	到课未完课	7/12	未提交	未提交	已完课	13/13	100	5	已完课	12/12	100	5	已完课	14/14	100	5	已完课	16/16	100	5	已完课	13/13	100	待批改
+8132974	窦天佑	在班	100.0%	已完课	12/12	40	5	已完课	13/13	100	5	已完课	12/12	60	4	已完课	14/14	60	待批改	已完课	16/16	40	待批改	已完课	13/13	40	待批改
+*/
+
+//工具 分析完课 时间07月14日16时
+function tool_fenxiwanke(id){ 
+  var hang  = document.getElementById(id).value.split("\n"); 
+  var num_stu = hang.length -2; 
+  var lie1 = hang[0].toString().split("\t"); 
+  var lie2 = hang[1].toString().split("\t");
+  var num_cla = lie1.length /4 -1;
+
+  tool_in_last( "renke",    "人数"+"\t"+ String(num_stu)+ "\t"+ "课数"+"\t"+ String(num_cla) +"\t" +"分析未完课结果见下："); 
+  //tool_in_last( "lie_tou1","列头一"+"\t"+ lie1 ); 
+  //tool_in_last( "lie_tou2","列头二"+"\t"+ lie2 ); 
+
+  tool_in_text("wanke_data_out" ,"");
+  //第3行的未提交 参考遍历数组效率 https://www.cnblogs.com/kefeiGame/p/8391859.html
+  for(i = 0 ; i < num_stu; i++) {
+    var data = hang[i+2].toString().split("\t");
+    console.log(i +" "+ data[1] +" ");
+    var data_o = tool_data_out_hang( data , lie1 , lie2); 
+    console.log(data_o);
+    var data_wanke = document.getElementById("id_tool_wanke_data_out");
+    data_wanke.innerHTML += data_o;
+    if( i < num_stu-1 && data_o.length )data_wanke.innerHTML += "\n";
+  }
+  console.log(i+"\t"+len+"\t"+num_stu);
+}
+
+//工具 数据 提取 行未完课数据 data_hang data_lie2 data_lie1
+function tool_data_out_hang( data , lie1 , lie2){
+  var data_num = [];
+  for(j = 0,len=data.length; j < len; j++) {
+    if( data[2] =="在班" ){ if(data[j] == "未提交"){ if(lie2[j] == "作业" && lie1[j].indexOf("-8") == -1)data_num.push(lie1[j]);} }
+  }
+  var data_out = new Array();
+  if(data_num.length >0 && parseFloat(data[3]) <100){ 
+    
+    //data_out.push( data[0] );
+    data_out.push( data[0] + "\t"+ data[1] +"\t"+ data[2] +lie1[3] + data[3] +"\t"+ "未完课"+ data_num.length +"节"+"\t"+ "未完课课程" +"\t"+ data_num.toString() );
+   
+    tool_in_last( data[0], data[0] +"\t"+ "未完课"+ data_num.length +"节"+"\t"+ data_num.toString() );
+    document.getElementById("id_tool_"+data[0]).click = function(){ var data_id = []; data_id[0] = document.getElementById("id_tool_"+data[0]).value; tool_copyToClip(data_id); }
+  }
+  return data_out; 
 }
 
 //工具 到课 时间07月11日10时 修改07月12日10时 在线课堂链接https://api.hetao101.com/live-course-system/course-management/online-course
@@ -234,6 +304,7 @@ function tool_clear (){ data_change("id_box_tool", "");}
 //工具 装入 监听版 时间06月12日14时 参考https://www.w3school.com.cn/jsref/met_element_addeventlistener.asp
 function tool_in      (id ,data){ if (!document.getElementById ('id_tool_'+id) ){ data_add     ("id_box_tool", `<input id="id_tool_${id}" name="name_tool_${id}" type="submit" value="${data}">` ); document.getElementById ('id_tool_'+id).style = clas_tool; document.getElementById ('id_tool_'+id).addEventListener("click", function(){ _onclick(this) } ,false ); document.getElementById ('id_tool_'+id).addEventListener("dblclick", function(){ _ondblclick(this) } ,false ); }  document.getElementById ('id_tool_'+id).addEventListener("touchstart", function(){ gtouchstart(this) });  document.getElementById ('id_tool_'+id).addEventListener("touchend", function(){ gtouchend(this) }); document.getElementById ('id_tool_'+id).addEventListener("touchmove", function(){ gtouchmove(this) });}  
 function tool_in_last (id ,data){ if (!document.getElementById ('id_tool_'+id) ){ data_add_last("id_box_tool", `<input id="id_tool_${id}" name="name_tool_${id}" type="submit" value="${data}">` ); document.getElementById ('id_tool_'+id).style = clas_tool; document.getElementById ('id_tool_'+id).addEventListener("click", function(){ _onclick(this) } ,false ); document.getElementById ('id_tool_'+id).addEventListener("dblclick", function(){ _ondblclick(this) } ,false ); }  document.getElementById ('id_tool_'+id).addEventListener("touchstart", function(){ gtouchstart(this) });  document.getElementById ('id_tool_'+id).addEventListener("touchend", function(){ gtouchend(this) }); document.getElementById ('id_tool_'+id).addEventListener("touchmove", function(){ gtouchmove(this) });}  
+function tool_in_text (id ,data){ if (!document.getElementById ('id_tool_'+id) ){ data_add_last("id_box_tool", `<textarea id="id_tool_${id}" name="name_tool_${id}" type="submit" wrap="off" placeholder="粘贴全部完课">${data}</textarea>` ); document.getElementById ('id_tool_'+id).style = clas_tool; document.getElementById ('id_tool_'+id).style.height = "calc(18vh)"; document.getElementById ('id_tool_'+id).style.width = "calc(60vh)"; document.getElementById ('id_tool_'+id).focus (); }  } 
 
 //工具 唯一key 获取 05月28日21时 参考https://www.jianshu.com/p/1deee52cee79
 function tool_getUuiD(randomLength){ return Number(Math.random().toString().substr(2,randomLength) + Date.now()).toString(36); }
@@ -248,4 +319,4 @@ function data_delete (id){ var child=document.getElementById(id); if(child){ chi
 function data_add (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(5); newtext.innerHTML= data; var list=document.getElementById(id); list.insertBefore(newtext,list.childNodes[0]); return "data_add(ok)"; }
 function data_add_last (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(6); newtext.innerHTML= data; var list=document.getElementById(id); list.appendChild(newtext); return "data_add(ok)"; }
 
-                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                        
