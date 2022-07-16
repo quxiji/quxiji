@@ -251,7 +251,7 @@ function tool_data_out_hang( data , lie1 , lie2){
     data_out.push( data[0] + "\t"+ data[1] +"\t"+ data[2] +lie1[3] + data[3] +"\t"+ "未完课"+ data_num.length +"节"+"\t"+ "未完课课程" +"\t"+ data_num.toString() );
    
     tool_in_last( data[0], data[0] +"\t"+ "未完课"+ data_num.length +"节"+"\t"+ data_num.toString() );
-    document.getElementById("id_tool_"+data[0]).addEventListener("click", function(){ var data_id = []; data_id[0] = document.getElementById("id_tool_"+data[0]).value; tool_copyToClip(data_id); }  );  
+    document.getElementById("id_tool_"+data[0]).addEventListener("click", function(){ var data_id  = document.getElementById("id_tool_"+data[0]).value.split("\t"); var data_arr = []; data_arr[0] = data_id[1].toString() + data_id[2].toString(); tool_copyToClip(data_id); data_arr[0] = data_id[0]; tool_copyToClip(data_id); }  );  
   }
   return data_out; 
 }
