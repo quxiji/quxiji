@@ -366,4 +366,4 @@ function data_add (id ,data){ var newtext=document.createElement("div"); newtext
 function data_add_last (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(6); newtext.innerHTML= data; var list=document.getElementById(id); list.appendChild(newtext); return "data_add(ok)"; }
 
                                                                                                                                                                                                                                                                                                                                                         
-            
+        
