@@ -18,7 +18,7 @@
     function tool_int_yaogan (){ document.getElementById('id_box_tool').style = "left:10px;bottom:10px;"; }
 
     //🚩🚩展现版本
-    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`[城门 [github_071702]`);  }
+    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`[城门 [github_071705]`);  }
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -42,7 +42,7 @@
     function tool_in_add_wanke(){ tool_in ("wanke" ,"完课"); }
 
     //添加 工具 分析完课
-    function tool_in_add_fenxiwanke(){ tool_in ("fenxiwanke" ,"分析完课"); }
+    function tool_in_add_fenxiwanke(){ tool_in ("fenxizuoye" ,"分析作业"); tool_in ("fenxiwanke" ,"分析完课"); }
 
     //工具_引导 用于引导用户
     function tool_yindao(data){ var date=tool_getUuiD(2); tool_in( "yindao_"+date,data ); tool_clear_time('id_tool_yindao_'+date, 1500); }
@@ -164,8 +164,10 @@ function rukou_onclick(who){
      case 'id_tool_changxian': tool_clear(); tool_changxian_ondblclick(); break;
      case 'id_tool_daoke':     tool_daoke(); break;
 
+     
      case 'id_tool_wanke':     tool_clear(); tool_in_text("wanke_data",""); tool_in_add_fenxiwanke(); break;
      case 'id_tool_fenxiwanke':tool_fenxiwanke("id_tool_wanke_data"); break;
+     case 'id_tool_fenxizuoye':tool_fenxizuoye("id_tool_wanke_data"); break;
 
      case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
      case 'id_tool_link':      tool_clear(); tool_link(who); break;
@@ -212,6 +214,50 @@ userId	学员姓名	在班状态	完课率	完课状态	挑战进度	随堂测�
 8132974	窦天佑	在班	100.0%	已完课	12/12	40	5	已完课	13/13	100	5	已完课	12/12	60	4	已完课	14/14	60	待批改	已完课	16/16	40	待批改	已完课	13/13	40	待批改
 */
 
+//工具 分析作业 时间07月17日16时
+function tool_fenxizuoye(id){ 
+  var hang  = document.getElementById(id).value.split("\n"); 
+  var num_stu = hang.length -2; 
+  var lie1 = hang[0].toString().split("\t"); 
+  var lie2 = hang[1].toString().split("\t");
+  var num_cla = lie1.length /4 -1;
+
+  tool_in_last( "renke_zuoye",    "人数"+"\t"+ String(num_stu)+ "\t"+ "课数"+"\t"+ String(num_cla) +"\t" +"分析未改作业结果见下："); 
+  //tool_in_last( "lie_tou1","列头一"+"\t"+ lie1 ); 
+  //tool_in_last( "lie_tou2","列头二"+"\t"+ lie2 ); 
+
+  tool_in_text("zuoye_data_out" ,"");
+  //第3行的未提交 参考遍历数组效率 https://www.cnblogs.com/kefeiGame/p/8391859.html
+  for(i = 0 ; i < num_stu; i++) {
+    var data = hang[i+2].toString().split("\t");
+    console.log(i +" "+ data[1] +" ");
+    var data_o = tool_data_out_zuoyehang( data , lie1 , lie2); 
+    console.log(data_o);
+    var data_wanke = document.getElementById("id_tool_zuoye_data_out");
+    data_wanke.innerHTML += data_o;
+    if( i < num_stu-1 && data_o.length )data_wanke.innerHTML += "\n";
+  }
+  console.log(i+"\t"+len+"\t"+num_stu);
+}
+
+//工具 数据 提取 行未改作业 数据 data_hang data_lie2 data_lie1
+function tool_data_out_zuoyehang( data , lie1 , lie2){
+  var data_num = [];
+  for(j = 0,len=data.length; j < len; j++) {
+    if( data[2] =="在班" ){ if(lie2[j] == "作业" ){ if(data[j] == "4" || data[j] == "3")data_num.push(lie1[j]);} }
+  }
+  var data_out = new Array();
+  if(data_num.length >0 ){ 
+    
+    //data_out.push( data[0] );
+    data_out.push( data[0] + "\t"+ data[1] +"\t"+ data[2] +"\t"+ "未改"+ data_num.length +"节"+"\t"+ "未改作业课程" +"\t"+ data_num.toString() );
+   
+    //tool_in_last( data[0], data[0] +"\t"+ "未完课"+ data_num.length +"节"+"\t"+ data_num.toString() );
+    //var tool_data = document.getElementById("id_tool_"+data[0]); tool_data.addEventListener("click", function(){ var data_id  = tool_data.value.split("\t"); var data_arr = [];  data_arr[0] = data_id[1].toString() + data_id[2].toString(); tool_copyToClip(data_arr,data_arr[0]); var copy_Timer = window.setTimeout(function(){ data_arr[0] = data_id[0]; tool_copyToClip(data_arr,data_arr[0]);  copy_Timer = null; }, 500);  var clear_Timer = window.setTimeout(function(){ tool_data.parentNode.remove();  clear_Timer = null; }, 800);  }  );  
+  }
+  return data_out; 
+}
+
 //工具 分析完课 时间07月14日16时
 function tool_fenxiwanke(id){ 
   var hang  = document.getElementById(id).value.split("\n"); 
@@ -220,7 +266,7 @@ function tool_fenxiwanke(id){
   var lie2 = hang[1].toString().split("\t");
   var num_cla = lie1.length /4 -1;
 
-  tool_in_last( "renke",    "人数"+"\t"+ String(num_stu)+ "\t"+ "课数"+"\t"+ String(num_cla) +"\t" +"分析未完课结果见下："); 
+  tool_in_last( "renke_wanke",    "人数"+"\t"+ String(num_stu)+ "\t"+ "课数"+"\t"+ String(num_cla) +"\t" +"分析未完课结果见下："); 
   //tool_in_last( "lie_tou1","列头一"+"\t"+ lie1 ); 
   //tool_in_last( "lie_tou2","列头二"+"\t"+ lie2 ); 
 
@@ -320,3 +366,4 @@ function data_add (id ,data){ var newtext=document.createElement("div"); newtext
 function data_add_last (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(6); newtext.innerHTML= data; var list=document.getElementById(id); list.appendChild(newtext); return "data_add(ok)"; }
 
                                                                                                                                                                                                                                                                                                                                                         
+            
