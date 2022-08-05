@@ -52,8 +52,8 @@ ajax_get_js("https://quxiji.github.io/quxiji/id_monkey.js");
 `使用`进入在线课堂或crm 双击鼠标左键 唤出/隐藏工具箱  
   
 截图为在线课堂使用截图 <a href="https://crm.pipacoding.com/">在线课堂</a> 
-<img style="width:calc(40cw);"  src="http://47.97.64.181/apk/easy/data/SQL/temp/phot_clas_20220804112054.png"/>  
+<img style="width:calc(40cw);"  src="https://github.com/quxiji/quxiji/blob/ea8e442b26357179badb66541472758ead317be0/data/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%AE%B1_%E5%9C%A8%E7%BA%BF%E8%AF%BE%E5%A0%822022-08-04%20112054.png"/>  
   
 截图为crm使用截图 <a href="https://crm.pipacoding.com/">crm</a> 
-<img style="width:calc(40cw);"  src="http://47.97.64.181/apk/easy/data/SQL/temp/phot_crm_20220804142834.png"/>  
+<img style="width:calc(40cw);"  src="https://github.com/quxiji/quxiji/blob/ea8e442b26357179badb66541472758ead317be0/data/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%AE%B1_crm2022-08-04%20142834.png"/>  
 
