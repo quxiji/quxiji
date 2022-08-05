@@ -52,6 +52,5 @@ ajax_get_js("https://quxiji.github.io/quxiji/id_monkey.js");
 ```
 `使用`进入在线课堂或crm 双击鼠标左键 唤出/隐藏工具箱  
 [在线课堂 https://crm.pipacoding.com/](https://crm.pipacoding.com/)  
-![image](data/屏幕截图_绘图工具箱_在线课堂2022-08-04 112054.png)  
+(https://quxiji.github.io/quxiji/data/屏幕截图_绘图工具箱_在线课堂2022-08-04 112054.png)
 [crm https://crm.pipacoding.com/](https://api.pipacoding.com/)  
-![image]()
