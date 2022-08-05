@@ -27,16 +27,16 @@
     document.body.addEventListener("dblclick", function(){ var bod = new Object(); bod.id = "body"; _ondblclick( bod ); } );
 
     //添加 工具 长截图
-    function tool_in_add_jietu(){ tool_in ("changxian" ,"截图"); }// document.getElementById('id_tool_changxian').style = clas_tool; }
+    function tool_in_add_jietu(){ tool_in ("changxian" ,"截图"); }
 
     //添加 工具 批改
-    function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); }// document.getElementById('id_tool_pigai').style = clas_tool; }
+    function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); }
 
     //添加 工具 链接
-    function tool_in_add_link(){ tool_in ("link" ,"链接"); }// document.getElementById('id_tool_link').style = clas_tool; }
+    function tool_in_add_link(){ tool_in ("link" ,"链接"); }
 
     //添加 工具 到课
-    function tool_in_add_daoke(){ tool_in ("daoke" ,"到课"); }// document.getElementById('id_tool_daoke').style = clas_tool;}
+    function tool_in_add_daoke(){ tool_in ("daoke" ,"到课"); }
 
     //添加 工具 完课
     function tool_in_add_wanke(){ tool_in ("wanke" ,"完课"); }
@@ -55,10 +55,7 @@
         //监听 单击 提示截图快捷键
         tool_yindao( "Edge浏览器里 按下截图按键：Ctrl  +  shift  +  S" );
 
-        //聊天框消失tool_xiaoshi_liaotian ();
-
         //1触发截图 JS 模拟键按下 Ctrl  +  shift  +  S
-
         //参考https://www.csdn.net/tags/Ntjacg0sNzc5MzItYmxvZwO0O0OO0O0O.html
         //键码值 参考https://blog.csdn.net/qq_26990665/article/details/120776420  ctrl+shift+s 17 16 83
         //创建按键 参考https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent/initKeyEvent
@@ -104,12 +101,7 @@
         //1模拟鼠标位置
         //2触发元素 可行obj.click();  参考https://blog.csdn.net/weixin_45392081/article/details/124155073?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165554189516780366566221%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165554189516780366566221&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~times_rank-2-124155073-null-null.142^v17^pc_rank_34,157^v15^new_3&utm_term=JavaScript+%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E6%9F%90%E4%B8%AA%E4%BD%8D%E7%BD%AE&spm=1018.2226.3001.4187
         
-var click_Timer = window.setTimeout(function(){ 
-console.log( who);
-tool_yindao("开发中 [问题:js无法模拟鼠标点击页面元素]");
-}, 2000);
-
-    }
+        var click_Timer = window.setTimeout(function(){ console.log( who); tool_yindao("开发中 [问题:js无法模拟鼠标点击页面元素]"); }, 2000);  }
 
 
 //JS监听按键 06月10日 参考https://blog.csdn.net/weixin_44691608/article/details/120792586
@@ -163,7 +155,6 @@ function rukou_onclick(who){
      case 'body':              break;
      case 'id_tool_changxian': tool_clear(); tool_changxian_ondblclick(); break;
      case 'id_tool_daoke':     tool_daoke(); break;
-
      
      case 'id_tool_wanke':     tool_clear(); tool_in_text("wanke_data",""); tool_in_add_fenxiwanke(); break;
      case 'id_tool_fenxiwanke':tool_fenxiwanke("id_tool_wanke_data"); break;
@@ -198,7 +189,7 @@ function rukou_ondblclick(who){
 }
 
 
-/*
+/*待分析数据格式
 userId	学员姓名	在班状态	完课率	L11-1	L11-1	L11-1	L11-1	L11-2	L11-2	L11-2	L11-2	L11-3	L11-3	L11-3	L11-3	L11-4	L11-4	L11-4	L11-4	L11-5	L11-5	L11-5	L11-5	L11-6	L11-6	L11-6	L11-6
 userId	学员姓名	在班状态	完课率	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业	完课状态	挑战进度	随堂测首次得分	作业
 6963563	张柏毅	在班	100.0%	已完课	12/12	100	5	已完课	13/13	100	4	已完课	12/12	100	5	已完课	14/14	100	5	已完课	16/16	100	5	已完课	13/13	100	待批改
@@ -365,5 +356,4 @@ function data_delete (id){ var child=document.getElementById(id); if(child){ chi
 function data_add (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(5); newtext.innerHTML= data; var list=document.getElementById(id); list.insertBefore(newtext,list.childNodes[0]); return "data_add(ok)"; }
 function data_add_last (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(6); newtext.innerHTML= data; var list=document.getElementById(id); list.appendChild(newtext); return "data_add(ok)"; }
 
-                                                                                                                                                                                                                                                                                                                                                        
-        
+
