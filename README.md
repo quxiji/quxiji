@@ -56,3 +56,4 @@ ajax_get_js("https://quxiji.github.io/quxiji/id_monkey.js");
   
 [crm https://crm.pipacoding.com/](https://api.pipacoding.com/)  
 <img style="width:calc(50cw);"  src="https://github.com/quxiji/quxiji/blob/c40d5c37567256df59fd3723a60aebb941148e85/data/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E7%AE%B1_crm2022-08-04%20142834.png">
+
