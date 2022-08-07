@@ -18,7 +18,7 @@
     function tool_int_yaogan (){ document.getElementById('id_box_tool').style = "left:10px;bottom:10px;"; }
 
     //🚩🚩展现版本
-    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`[城门 [github_080703]`);  }
+    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`[城门 [github_080706]`);  }
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -26,10 +26,10 @@
     //添加 body 监听 双击
     document.body.addEventListener("dblclick", function(){ var bod = new Object(); bod.id = "body"; _ondblclick( bod ); } );
 
-    //添加 工具 长截图
+    //↻添加 工具 长截图
     function tool_in_add_jietu(){ tool_in ("changxian" ,"截图"); }
 
-    //添加 工具 批改
+    //↻添加 工具 批改
     function tool_in_add_pigai(){ tool_in ("pigai" ,"批改"); }
 
     //添加 工具 链接
@@ -44,9 +44,6 @@
     //添加 工具 分析完课
     function tool_in_add_fenxiwanke(){ tool_in ("fenxizuoye" ,"分析作业"); tool_in ("fenxiwanke" ,"分析完课"); }
 
-    //工具_引导 用于引导用户
-    function tool_yindao(data){ var date=tool_getUuiD(2); tool_in( "yindao_"+date,data ); tool_clear_time('id_tool_yindao_'+date, 1500); }
-    
 
 
 var doms_click = [];
@@ -55,7 +52,6 @@ function rukou_onclick(who){
   
   //用于调试console.log( "rukou_onclick:", document.elementsFromPoint(who.clientX,who.clientY));
   //tool_in_last( "xy_touch"+tool_getUuiD(1),who.clientX +","+who.clientY);
-  
   
   who = document.elementFromPoint(who.clientX,who.clientY);
   //Switch语句 参考https://www.w3school.com.cn/js/js_switch.asp
@@ -97,6 +93,10 @@ function rukou_ondblclick(who){
   }
 }
 
+
+//↻fun() 待实现功能
+//≜fun() 待改进功能
+//fun()  可使用功能
 
     //↻工具 双击 长截图
     function tool_changxian_ondblclick(){
@@ -272,7 +272,7 @@ function tool_daoke(){  var x = document.getElementsByClassName("ant-tabs-tabpan
 function tool_copyToClip(contentArray, message) { var contents = ""; if(contentArray.length == 1){ contents = contentArray[0]; } else{ for (var i = 0; i < contentArray.length; i++) { if (i%2 === 0){  contents +=  1+ i/2 + "\t" +contentArray[i] + "\t";} else{ contents +=  contentArray[i] +"\n";} } } const textarea = document.createElement('textarea'); textarea.value = contents; document.body.appendChild(textarea); textarea.select(); if (document.execCommand('copy')) { document.execCommand('copy'); } document.body.removeChild(textarea); if (message == null) { tool_yindao("复制成功 可直接粘贴 "+contentArray.length/2); } else{ tool_yindao(message); } return contents;}
 
 //工具 link
-function tool_link(who){ tool_in(`link_wankebiao`,`完课表`); tool_in(`link_git_monkey`,`一起git工具箱`);}
+function tool_link(who){ tool_in(`link_git_monkey`,`一起git工具箱`); tool_in(`link_wankebiao`,`完课表`); }
 
 //工具 广告屏蔽 06月29日17时
 function tool_class_displaynone (css) {  if( document.querySelectorAll(css)[0]) document.querySelectorAll(css)[0].style = "display:none;";  }
@@ -309,6 +309,9 @@ var clickTimer = null;
 function _onclick(who)    { who = event;  if(clickTimer) { window.clearTimeout(clickTimer); clickTimer = null; } clickTimer = window.setTimeout(function(){  tool_tishi("touch_c","触单击"); rukou_onclick(who);  }, 10); }
 function _ondblclick(who) { who = event;  if(clickTimer) { window.clearTimeout(clickTimer); clickTimer = null; } tool_tishi("touch_cc","触双击"); rukou_ondblclick(who);  }
 
+//工具_引导 用于引导用户
+function tool_yindao(data){ var date=tool_getUuiD(2); tool_in( "yindao_"+date,data ); tool_clear_time('id_tool_yindao_'+date, 1500); }
+    
 //工具 临时提示 用于调试 时间06月12日14时
 function tool_tishi (id,data){ }// tool_in_last(id,data ); tool_clear_time("id_tool_"+id, 200); }
 
