@@ -1,4 +1,5 @@
 
+
     //id_monkey.face 孵化 draw.face 全局入口 让每个人都触手开放
     
     //测试版本 http://47.97.64.181/quxiji/apk/id/id_monkey.js
@@ -10,7 +11,7 @@
     box_tool.innerHTML = `<style>::-webkit-scrollbar{ display: none; /* Chrome Safari */} </style>`;
     document.body.appendChild( box_tool );
 
-    //工具 添加 工具箱 摇杆
+    //工具 添加 工具箱 摇杆 参考http://47.97.64.181
     tool_add_yaogan ("id_box_body");
     tool_int_yaogan ();
     var clas_tool = "max-height:calc(60vh);max-width:calc(60vh);border-radius:5px 5px 5px 5px;border:2px solid rgba(250,250,250,0);margin:3px;box-shadow: 1px 2px 3px rgba(200,200,200,1);background:rgba(255,255,255,1);color:rgba(0,0,0,1);font-family:'微软雅黑';font-size:10px;overflow:auto;display:block;";
@@ -59,8 +60,8 @@ function rukou_onclick(who){
      case 'id_tool_daoke':     tool_daoke(); break;
      
      case 'id_tool_wanke':     tool_clear(); tool_in_text("wanke_data",""); tool_in_add_fenxiwanke(); break;
-     case 'id_tool_fenxiwanke':tool_fenxiwanke("id_tool_wanke_data"); break;
-     case 'id_tool_fenxizuoye':tool_fenxizuoye("id_tool_wanke_data"); break;
+          case 'id_tool_fenxiwanke':tool_fenxiwanke("id_tool_wanke_data"); break;
+          case 'id_tool_fenxizuoye':tool_fenxizuoye("id_tool_wanke_data"); break;
 
      case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
      case 'id_tool_link':      tool_clear(); tool_link(who); break;
@@ -336,5 +337,6 @@ function data_delete (id){ var child=document.getElementById(id); if(child){ chi
 //数据 添加
 function data_add (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(5); newtext.innerHTML= data; var list=document.getElementById(id); list.insertBefore(newtext,list.childNodes[0]); return "data_add(ok)"; }
 function data_add_last (id ,data){ var newtext=document.createElement("div"); newtext.id = "id_add_div_"+tool_getUuiD(6); newtext.innerHTML= data; var list=document.getElementById(id); list.appendChild(newtext); return "data_add(ok)"; }
+
 
 
