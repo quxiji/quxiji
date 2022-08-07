@@ -130,8 +130,9 @@ function rukou_onclick(who){
      case 'id_tool_fenxizuoye':tool_fenxizuoye("id_tool_wanke_data"); break;
 
      case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
-     case 'id_tool_link':      tool_clear(); tool_link(who); break;
+     case 'id_tool_link':      tool_clear(); tool_in ("pigai" ,"批改"); break;
           case 'id_tool_link_wankebiao':      tool_clear(); window.open("https://shimo.im/sheets/e1Az4OXdd8CRDeqW/5C8AI"); break;
+          case 'id_tool_link_git_monkey':      tool_clear(); window.open("https://github.com/quxiji/quxiji/blob/main/id_monkey.js"); break;
      default:  doms_click.push(who);  console.log(doms_click);        
   } 
 }
@@ -270,7 +271,7 @@ function tool_daoke(){  var x = document.getElementsByClassName("ant-tabs-tabpan
 function tool_copyToClip(contentArray, message) { var contents = ""; if(contentArray.length == 1){ contents = contentArray[0]; } else{ for (var i = 0; i < contentArray.length; i++) { if (i%2 === 0){  contents +=  1+ i/2 + "\t" +contentArray[i] + "\t";} else{ contents +=  contentArray[i] +"\n";} } } const textarea = document.createElement('textarea'); textarea.value = contents; document.body.appendChild(textarea); textarea.select(); if (document.execCommand('copy')) { document.execCommand('copy'); } document.body.removeChild(textarea); if (message == null) { tool_yindao("复制成功 可直接粘贴 "+contentArray.length/2); } else{ tool_yindao(message); } return contents;}
 
 //工具 link
-function tool_link(who){ tool_in(`link_wankebiao`,`完课表`);}
+function tool_link(who){ tool_in(`link_wankebiao`,`完课表`); tool_in(`link_git_monkey`,`一起git工具箱`);}
 
 //工具 广告屏蔽 06月29日17时
 function tool_class_displaynone (css) {  if( document.querySelectorAll(css)[0]) document.querySelectorAll(css)[0].style = "display:none;";  }
