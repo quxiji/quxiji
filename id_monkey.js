@@ -17,14 +17,12 @@
     function tool_add_yaogan (id){ if( null == document.getElementById('id_box_tool')){ data_add(id,`<div id="id_box_tool"></div>`); } }
     function tool_int_yaogan (){ document.getElementById('id_box_tool').style = "left:10px;bottom:10px;"; }
 
+    //添加 body 监听 单击 双击
+    document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
+    document.body.addEventListener("dblclick", function(){ var bod = new Object(); bod.id = "body"; _ondblclick( bod ); } );
+
     //🚩🚩展现版本
     if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`[城门 [github_080706]`);  }
-
-    //添加 body 监听 单击
-    document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
-
-    //添加 body 监听 双击
-    document.body.addEventListener("dblclick", function(){ var bod = new Object(); bod.id = "body"; _ondblclick( bod ); } );
 
     //↻添加 工具 长截图
     function tool_in_add_jietu(){ tool_in ("changxian" ,"截图"); }
