@@ -49,6 +49,55 @@
     
 
 
+var doms_click = [];
+//入口 触单击🍓 
+function rukou_onclick(who){
+  
+  //用于调试console.log( "rukou_onclick:", document.elementsFromPoint(who.clientX,who.clientY));
+  //tool_in_last( "xy_touch"+tool_getUuiD(1),who.clientX +","+who.clientY);
+  
+  
+  who = document.elementFromPoint(who.clientX,who.clientY);
+  //Switch语句 参考https://www.w3school.com.cn/js/js_switch.asp
+  switch(who.id) {
+     case 'body':              break;
+     case 'id_tool_changxian': tool_clear(); tool_changxian_ondblclick(); break;
+     case 'id_tool_daoke':     tool_daoke(); break;
+     
+     case 'id_tool_wanke':     tool_clear(); tool_in_text("wanke_data",""); tool_in_add_fenxiwanke(); break;
+     case 'id_tool_fenxiwanke':tool_fenxiwanke("id_tool_wanke_data"); break;
+     case 'id_tool_fenxizuoye':tool_fenxizuoye("id_tool_wanke_data"); break;
+
+     case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
+     case 'id_tool_link':      tool_clear(); tool_link(who); break;
+          case 'id_tool_link_wankebiao':      tool_clear(); window.open("https://shimo.im/sheets/e1Az4OXdd8CRDeqW/5C8AI"); break;
+          case 'id_tool_link_git_monkey':      tool_clear(); window.open("https://github.com/quxiji/quxiji/blob/main/id_monkey.js"); break;
+     default:  doms_click.push(who);  console.log(doms_click);        
+  } 
+}
+
+//入口 触双击🍓🍓
+function rukou_ondblclick(who){
+  //用于调试     
+  console.log( "rukou_ondblonclick:",who.id , "节点",who.target,"坐标",event.clientX ,",", who.clientY);
+
+  var box_tool = document.getElementById('id_box_tool'); 
+  if(box_tool.childNodes.length){ tool_clear(); } 
+  else{
+    who = document.elementFromPoint(who.clientX,who.clientY);
+    //Switch语句 参考https://www.w3school.com.cn/js/js_switch.asp
+    switch(who.id) {
+      case 'body':              break;
+      case 'id_tool_changxian': break;
+      case 'id_tool_pigai':     break;
+      case 'id_tool_clear':     break;
+      default:                  if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"){ tool_in_add_pigai(); tool_in_add_link(); tool_in_add_wanke();} if( tool_get_url() == "api.hetao101.com" || tool_get_url() =="api.pipacoding.com"){ tool_in_add_jietu(); tool_in_add_daoke();}console.log( "url",tool_get_url());
+
+    } 
+  }
+}
+
+
     //↻工具 双击 长截图
     function tool_changxian_ondblclick(){
         //长截图
@@ -109,54 +158,6 @@
 
 
 
-
-var doms_click = [];
-//入口 触单击🍓 
-function rukou_onclick(who){
-  
-  //用于调试console.log( "rukou_onclick:", document.elementsFromPoint(who.clientX,who.clientY));
-  //tool_in_last( "xy_touch"+tool_getUuiD(1),who.clientX +","+who.clientY);
-  
-  
-  who = document.elementFromPoint(who.clientX,who.clientY);
-  //Switch语句 参考https://www.w3school.com.cn/js/js_switch.asp
-  switch(who.id) {
-     case 'body':              break;
-     case 'id_tool_changxian': tool_clear(); tool_changxian_ondblclick(); break;
-     case 'id_tool_daoke':     tool_daoke(); break;
-     
-     case 'id_tool_wanke':     tool_clear(); tool_in_text("wanke_data",""); tool_in_add_fenxiwanke(); break;
-     case 'id_tool_fenxiwanke':tool_fenxiwanke("id_tool_wanke_data"); break;
-     case 'id_tool_fenxizuoye':tool_fenxizuoye("id_tool_wanke_data"); break;
-
-     case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
-     case 'id_tool_link':      tool_clear(); tool_link(who); break;
-          case 'id_tool_link_wankebiao':      tool_clear(); window.open("https://shimo.im/sheets/e1Az4OXdd8CRDeqW/5C8AI"); break;
-          case 'id_tool_link_git_monkey':      tool_clear(); window.open("https://github.com/quxiji/quxiji/blob/main/id_monkey.js"); break;
-     default:  doms_click.push(who);  console.log(doms_click);        
-  } 
-}
-
-//入口 触双击🍓🍓
-function rukou_ondblclick(who){
-  //用于调试     
-  console.log( "rukou_ondblonclick:",who.id , "节点",who.target,"坐标",event.clientX ,",", who.clientY);
-
-  var box_tool = document.getElementById('id_box_tool'); 
-  if(box_tool.childNodes.length){ tool_clear(); } 
-  else{
-    who = document.elementFromPoint(who.clientX,who.clientY);
-    //Switch语句 参考https://www.w3school.com.cn/js/js_switch.asp
-    switch(who.id) {
-      case 'body':              break;
-      case 'id_tool_changxian': break;
-      case 'id_tool_pigai':     break;
-      case 'id_tool_clear':     break;
-      default:                  if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"){ tool_in_add_pigai(); tool_in_add_link(); tool_in_add_wanke();} if( tool_get_url() == "api.hetao101.com" || tool_get_url() =="api.pipacoding.com"){ tool_in_add_jietu(); tool_in_add_daoke();}console.log( "url",tool_get_url());
-
-    } 
-  }
-}
 
 
 
