@@ -18,7 +18,7 @@
     function tool_int_yaogan (){ document.getElementById('id_box_tool').style = "left:10px;bottom:10px;"; }
 
     //🚩🚩展现版本
-    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`[城门 [github_071705]`);  }
+    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`[城门 [github_080703]`);  }
 
     //添加 body 监听 单击
     document.body.addEventListener("click", function(){ var bod = new Object(); bod.id = "body"; _onclick( bod ); } );
@@ -130,7 +130,7 @@ function rukou_onclick(who){
      case 'id_tool_fenxizuoye':tool_fenxizuoye("id_tool_wanke_data"); break;
 
      case 'id_tool_pigai':     tool_clear(); tool_pigai(who); break;
-     case 'id_tool_link':      tool_clear(); tool_in ("pigai" ,"批改"); break;
+     case 'id_tool_link':      tool_clear(); tool_link(who); break;
           case 'id_tool_link_wankebiao':      tool_clear(); window.open("https://shimo.im/sheets/e1Az4OXdd8CRDeqW/5C8AI"); break;
           case 'id_tool_link_git_monkey':      tool_clear(); window.open("https://github.com/quxiji/quxiji/blob/main/id_monkey.js"); break;
      default:  doms_click.push(who);  console.log(doms_click);        
