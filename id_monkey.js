@@ -47,7 +47,9 @@
     //工具_引导 用于引导用户
     function tool_yindao(data){ var date=tool_getUuiD(2); tool_in( "yindao_"+date,data ); tool_clear_time('id_tool_yindao_'+date, 1500); }
     
-    //工具 双击 长截图
+
+
+    //↻工具 双击 长截图
     function tool_changxian_ondblclick(){
         //长截图
         tool_jietu ();
@@ -55,7 +57,7 @@
         //监听 单击 提示截图快捷键
         tool_yindao( "Edge浏览器里 按下截图按键：Ctrl  +  shift  +  S" );
 
-        //1触发截图 JS 模拟键按下 Ctrl  +  shift  +  S
+        //1触发截图 JS 模拟键按下 Ctrl  +  shift  +  S 
         //参考https://www.csdn.net/tags/Ntjacg0sNzc5MzItYmxvZwO0O0OO0O0O.html
         //键码值 参考https://blog.csdn.net/qq_26990665/article/details/120776420  ctrl+shift+s 17 16 83
         //创建按键 参考https://developer.mozilla.org/zh-CN/docs/Web/API/KeyboardEvent/initKeyEvent
@@ -66,7 +68,7 @@
         fireKeyEvent('id_box_body');
     }
 
-//JS 模拟键按下 Ctrl  +  shift  +  S  参考 https://www.csdn.net/tags/OtDaQg4sOTM4LWJsb2cO0O0O.html  参考 https://w3c.github.io/uievents/tools/key-event-viewer.html
+    //↻JS 模拟键按下 Ctrl  +  shift  +  S  参考 https://www.csdn.net/tags/OtDaQg4sOTM4LWJsb2cO0O0O.html  参考 https://w3c.github.io/uievents/tools/key-event-viewer.html
     function fireKeyEvent(id) {
         var KeyboardEventInit_ct = {key:"Control", code:"", location:0, repeat:false, isComposing:false, charCode:0, keyCode:17, which:17, ctrlKey:true, shiftKey:false, altKey:false, metaKey:false };
         var css_anji_ct = new KeyboardEvent('keydown', KeyboardEventInit_ct);
@@ -95,54 +97,21 @@
         console.log("ct",css_anji_ct,"sh",css_anji_sh,"s",css_anji_s );
     }
 
-    //工具 批改
+    //↻工具 批改
     function tool_pigai(who){
-        
         //1模拟鼠标位置
         //2触发元素 可行obj.click();  参考https://blog.csdn.net/weixin_45392081/article/details/124155073?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165554189516780366566221%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165554189516780366566221&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~times_rank-2-124155073-null-null.142^v17^pc_rank_34,157^v15^new_3&utm_term=JavaScript+%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E6%9F%90%E4%B8%AA%E4%BD%8D%E7%BD%AE&spm=1018.2226.3001.4187
-        
-        var click_Timer = window.setTimeout(function(){ console.log( who); tool_yindao("开发中 [问题:js无法模拟鼠标点击页面元素]"); }, 2000);  }
-
-
-//JS监听按键 06月10日 参考https://blog.csdn.net/weixin_44691608/article/details/120792586
-const onKeydownUp = (e, isDown) => { console.log(`key: ${e.key} ${isDown ? 'down' : 'up'}`,e); };
-    const testUpAndDown = () => {
-        document.addEventListener('keydown', (e) => onKeydownUp(e, true));
-        document.addEventListener('keyup', (e) => onKeydownUp(e, false));
-    };
-//testUpAndDown();
-
-    //工具 模拟鼠标点击 参考http://t.zoukankan.com/CyLee-p-7513342.html https://www.w3school.com.cn/xmldom/met_element_dispatchevent.asp
-    function tool_mouse_adblclick (){ var click_Timer = window.setTimeout(function(){ 
-        tool_mouse_simulateClick();
-    }, 100); }
-
-
-    //工具 模拟鼠标点击复选框 参考https://developer.mozilla.org/zh-CN/docs/Web/API/MouseEvent/MouseEvent
-function tool_mouse_simulateClick(){
-    //点击位置为屏幕中间
-  var evt = new MouseEvent("click", {
-    bubbles: true,
-    cancelable: true,
-    view: window,
-  });
-
-
-}
- 
-//工具 聊天框消失
-function tool_xiaoshi_liaotian (){
-    //学生聊天框消失
-    if( document.getElementById("chatAudio") ){
-        var list=document.getElementById("chatAudio").parentNode;
-        console.log(list.childNodes[1]);
-        if( document.getElementById("chatAudio") != list.childNodes[1] )list.removeChild(list.childNodes[1]);
+        var click_Timer = window.setTimeout(function(){ console.log( who); tool_yindao("开发中 [问题:js无法模拟鼠标点击页面元素]"); }, 2000); 
     }
-}
+
+    //↻工具 模拟鼠标点击 参考http://t.zoukankan.com/CyLee-p-7513342.html https://www.w3school.com.cn/xmldom/met_element_dispatchevent.asp
+    function tool_mouse_adblclick (){ var click_Timer = window.setTimeout(function(){ tool_mouse_simulateClick(); }, 100); }
+
+
 
 
 var doms_click = [];
-//入口 触单击🍓 问题会冒泡其他元素 无法使用
+//入口 触单击🍓 
 function rukou_onclick(who){
   
   //用于调试console.log( "rukou_onclick:", document.elementsFromPoint(who.clientX,who.clientY));
@@ -187,6 +156,7 @@ function rukou_ondblclick(who){
     } 
   }
 }
+
 
 
 /*待分析数据格式
@@ -296,7 +266,7 @@ function tool_data_out_hang( data , lie1 , lie2){
 //工具 到课 时间07月11日10时 修改07月12日10时 在线课堂链接https://api.hetao101.com/live-course-system/course-management/online-course
 function tool_daoke(){  var x = document.getElementsByClassName("ant-tabs-tabpane ant-tabs-tabpane-active")[0].getElementsByClassName("OnlineStyle_useCopyLabel__jCKO-"); var y =[]; for (var i = 0; i < x.length; i++) { y[i]  = x[i].innerText; x[i].style =clas_tool; } tool_clear(); var data_copy = tool_copyToClip(y); var id = "data_copy"+tool_getUuiD(2); tool_in(id ,data_copy); document.getElementById('id_tool_'+id).style.textAlign= 'left';  }
 
-// 工具 复制内容到剪切板 2个数据一行 带行号 时间07月11日10时 修改07月12日10时 参考https://blog.csdn.net/sunnyzyq/article/details/85065022 参考制表符https://blog.csdn.net/fanxueya1322/article/details/86612340 参考奇偶https://blog.csdn.net/qq_40816360/article/details/88295099
+//工具 复制内容到剪切板 2个数据一行 带行号 时间07月11日10时 修改07月12日10时 参考https://blog.csdn.net/sunnyzyq/article/details/85065022 参考制表符https://blog.csdn.net/fanxueya1322/article/details/86612340 参考奇偶https://blog.csdn.net/qq_40816360/article/details/88295099
 function tool_copyToClip(contentArray, message) { var contents = ""; if(contentArray.length == 1){ contents = contentArray[0]; } else{ for (var i = 0; i < contentArray.length; i++) { if (i%2 === 0){  contents +=  1+ i/2 + "\t" +contentArray[i] + "\t";} else{ contents +=  contentArray[i] +"\n";} } } const textarea = document.createElement('textarea'); textarea.value = contents; document.body.appendChild(textarea); textarea.select(); if (document.execCommand('copy')) { document.execCommand('copy'); } document.body.removeChild(textarea); if (message == null) { tool_yindao("复制成功 可直接粘贴 "+contentArray.length/2); } else{ tool_yindao(message); } return contents;}
 
 //工具 link
@@ -311,11 +281,19 @@ tool_id_displaynone ("u_sp");
 //工具 获取 地址
 function tool_get_url(){ return window.location.hostname; }
 
+//≜工具 聊天框消失 消除后无法唤出
+function tool_xiaoshi_liaotian (){ if( document.getElementById("chatAudio") ){ var list=document.getElementById("chatAudio").parentNode; console.log(list.childNodes[1]);  if( document.getElementById("chatAudio") != list.childNodes[1] )list.removeChild(list.childNodes[1]); } }
+
 //工具 长截图 调整布局 强大的js原生选择器 document.querySelector() 参考https://www.jianshu.com/p/2e1d5c92f9c4 https://www.runoob.com/jsref/met-element-queryselector.html
 function tool_jietu (){ if( document.querySelectorAll(".ant-table-body")[0])document.querySelectorAll(".ant-table-body")[0].style = "height:8000px; overflow:visible;";if( document.querySelectorAll(".ant-table-body")[1])document.querySelectorAll(".ant-table-body")[1].style = "height:8000px; overflow:visible;";if( document.querySelector(".ant-layout-content"))document.querySelector(".ant-layout-content").style = "margin: 24px 16px; background: rgb(255, 255, 255); padding: 24px; height: 8000px; overflow: hidden;";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[0].style = "height:8000px; ";if( document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1])document.querySelectorAll(".OnlineStyle_wrappedTable__3GJAC")[1].style = "height:8000px; ";}
 
 //工具 触摸 where
 function tool_touch_location (id){ var obj_yaogan = document.getElementById (id); obj_yaogan.style.left = event.clientX + 'px'; obj_yaogan.style.top = event.clientY + 'px'; obj_yaogan.style.posotion = "absolute"; obj_yaogan.style.position = "fixed";}
+
+//JS监听按键 06月10日 参考https://blog.csdn.net/weixin_44691608/article/details/120792586
+const onKeydownUp = (e, isDown) => { console.log(`key: ${e.key} ${isDown ? 'down' : 'up'}`,e); };
+const testUpAndDown = () => { document.addEventListener('keydown', (e) => onKeydownUp(e, true)); document.addEventListener('keyup', (e) => onKeydownUp(e, false)); };
+//testUpAndDown();
 
 //交互 长按 拖动  参考https://blog.csdn.net/weixin_35951275/article/details/117947051
 var timeOutEvent=null;
