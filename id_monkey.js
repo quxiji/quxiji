@@ -23,7 +23,8 @@
     document.body.addEventListener("dblclick", function(){ var bod = new Object(); bod.id = "body"; _ondblclick( bod ); } );
 
     //🚩🚩展现版本
-    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com"){ document.title = `·` + document.title ; tool_yindao(`[城门 [github_080706]`);  }
+    if( tool_get_url() == "crm.pipacoding.com" || tool_get_url() =="crm.hetao101.com"|| tool_get_url() == "api.hetao101.com" || tool_get_url() == "api.pipacoding.com")
+    { document.title = `·` + document.title ; tool_yindao(`[城门 [github_090701]`);  }
 
     //↻添加 工具 长截图
     function tool_in_add_jietu(){ tool_in ("changxian" ,"截图"); }
@@ -292,6 +293,9 @@ function tool_jietu (){ if( document.querySelectorAll(".ant-table-body")[0])docu
 function tool_touch_location (id){ var obj_yaogan = document.getElementById (id); obj_yaogan.style.left = event.clientX + 'px'; obj_yaogan.style.top = event.clientY + 'px'; obj_yaogan.style.posotion = "absolute"; obj_yaogan.style.position = "fixed";}
 
 //JS监听按键 06月10日 参考https://blog.csdn.net/weixin_44691608/article/details/120792586
+function tool_ctrl_c(event) { if( event.ctrlKey && event.keyCode == 67){ tool_yindao("复制成功"); } }
+document.addEventListener('keydown', tool_ctrl_c ); 
+
 const onKeydownUp = (e, isDown) => { console.log(`key: ${e.key} ${isDown ? 'down' : 'up'}`,e); };
 const testUpAndDown = () => { document.addEventListener('keydown', (e) => onKeydownUp(e, true)); document.addEventListener('keyup', (e) => onKeydownUp(e, false)); };
 //testUpAndDown();
