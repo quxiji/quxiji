@@ -284,7 +284,7 @@ tool_class_displaynone (".s-bottom-ctner");
 tool_id_displaynone ("u_sp");
 
 //工具 屏蔽sketchup部分内容
-function tool_class_change (css) { if( document.querySelectorAll(css)) { document.querySelectorAll(css).style.left = "0px"; document.querySelectorAll(css.style.width = "100%"; }}
+function tool_class_change (css) { if( document.querySelectorAll(css)) { document.querySelectorAll(css).style.left = "0px"; document.querySelectorAll(css).style.width = "100%"; }}
 
 
 //工具 获取 地址
