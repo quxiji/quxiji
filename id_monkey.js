@@ -280,6 +280,11 @@ function tool_id_displaynone (id) {  if(  document.getElementById (id))  documen
 tool_class_displaynone (".s-bottom-ctner"); 
 tool_id_displaynone ("u_sp");
 
+//工具 屏蔽sketchup部分内容
+function tool_class_change (css) { if( document.querySelectorAll(css)[0]) document.querySelectorAll(css)[0].style.left = "0px"; document.querySelectorAll(css)[0].style.width = "100%"; }
+tool_class_change ("left-sidebar-container");
+tool_class_displaynone ("upgrade-button upgrade-button-canvas");
+
 //工具 获取 地址
 function tool_get_url(){ return window.location.hostname; }
 
